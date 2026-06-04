@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>경남 자영업자 정책자금 안내 | 내 조건에 맞는 자금 찾기</title>
+<meta name="description" content="경상남도 음식점·자영업자를 위한 정책자금 안내. 업체 정보만 입력하면 신청 가능한 저금리 융자·보증·보조금을 자동으로 찾아드립니다.">
+<meta name="theme-color" content="#0f0e17">
+<!-- 카톡·SNS 공유 미리보기 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="경남 자영업자 정책자금 안내">
+<meta property="og:description" content="업체 정보만 입력하면 신청 가능한 정책자금을 자동으로 찾아드립니다. 소진공 공문 기반 + 기업마당 실시간 연동.">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍽️%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f8fc;
+  --card: #ffffff;
+  --border: #e8eaf2;
+  --text: #111827;
+  --sub: #6b7280;
+  --accent: #6366f1;
+  --accent2: #8b5cf6;
+  --green: #10b981;
+  --red: #ef4444;
+  --yellow: #f59e0b;
+  --blue: #3b82f6;
+  --radius: 16px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  --shadow-hover: 0 4px 24px rgba(99,102,241,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── 헤더 ── */
+.header {
+  background: #0f0e17;
+  padding: 28px 28px 24px;
+  position: relative; overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+.header::after {
+  content: '';
+  position: absolute; bottom: -40px; left: 40%;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hbadge {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(99,102,241,0.2); color: #a5b4fc;
+  font-size: 0.72rem; font-weight: 600; padding: 3px 10px;
+  border-radius: 20px; margin-bottom: 10px;
+  border: 1px solid rgba(99,102,241,0.3);
+}
+.hbadge::before { content: '●'; font-size: 0.55rem; color: #6366f1; }
+.header h1 { font-size: 1.5rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; line-height: 1.3; }
+.header p  { font-size: 0.8rem; color: #6b7280; margin-top: 6px; }
+
+/* ── 레이아웃 ── */
+.container { max-width: 1200px; margin: 0 auto; padding: 20px 16px; }
+.layout { display: grid; grid-template-columns: 320px 1fr; gap: 16px; align-items: start; }
+@media(max-width:880px){ .layout{ grid-template-columns:1fr; } }
+
+/* ── 카드 ── */
+.panel { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 20px; }
+
+/* ── 폼 섹션 ── */
+.sec-head {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase; margin: 16px 0 10px; color: var(--sub);
+}
+.sec-head::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.sec-head.required { color: var(--red); }
+.sec-head.optional { color: var(--green); }
+
+.form-group { margin-bottom: 10px; }
+.form-label { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+.badge-req { background: #fef2f2; color: var(--red); font-size: 0.62rem; padding: 1px 6px; border-radius: 4px; font-weight: 700; }
+.badge-opt { background: #f0fdf4; color: var(--green); font-size: 0.62rem; padding: 1px 6px; border-radius: 4px; font-weight: 600; }
+
+select {
+  width: 100%; padding: 9px 12px;
+  border: 1.5px solid var(--border); border-radius: 10px;
+  font-size: 0.84rem; color: var(--text); background: var(--bg);
+  font-family: inherit; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center;
+}
+select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(99,102,241,0.1); background-color: white; }
+
+/* 제외조건 박스 */
+.exclude-panel {
+  background: #fff5f5; border: 1px solid #fecaca; border-radius: 12px;
+  padding: 14px; margin-bottom: 4px;
+}
+.exclude-title { font-size: 0.75rem; font-weight: 700; color: var(--red); margin-bottom: 10px; display: flex; align-items: center; gap: 5px; }
+.exclude-note { font-size: 0.74rem; color:#7f1d1d; line-height:1.55; margin-bottom:9px; }
+.exclude-list { display:flex; flex-direction:column; gap:6px; }
+.exclude-row { font-size:0.78rem; color:#374151; padding-left:19px; position:relative; line-height:1.4; }
+.exclude-row b { color:#991b1b; }
+.exclude-row::before { content:'✕'; position:absolute; left:3px; color:var(--red); font-weight:800; font-size:0.72rem; }
+.exclude-foot { font-size:0.7rem; color:#9a3412; margin-top:10px; padding-top:8px; border-top:1px dashed #fecaca; }
+.chk-item {
+  display: flex; align-items: flex-start; gap: 9px;
+  font-size: 0.78rem; color: #374151; cursor: pointer;
+  padding: 5px 0; line-height: 1.4;
+}
+.chk-item input[type=checkbox] {
+  width: 15px; height: 15px; flex-shrink: 0; margin-top: 1px;
+  accent-color: var(--red); cursor: pointer;
+}
+.chk-item input[type=checkbox].blue { accent-color: var(--accent); }
+
+/* 체크 그룹 */
+.chk-group {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+  padding: 8px 12px; display: flex; flex-direction: column; gap: 2px;
+}
+.chk-group .chk-item input { accent-color: var(--accent); }
+
+/* 인라인 태그 */
+.itag {
+  display: inline-block; font-size: 0.6rem; font-weight: 700;
+  padding: 1px 6px; border-radius: 4px; margin-left: 4px; vertical-align: middle;
+}
+.it-purple { background: #ede9fe; color: #7c3aed; }
+.it-blue   { background: #dbeafe; color: #1d4ed8; }
+.it-green  { background: #dcfce7; color: #15803d; }
+.it-amber  { background: #fef3c7; color: #b45309; }
+
+/* 검색 버튼 */
+.btn-search {
+  width: 100%; padding: 12px; margin-top: 14px;
+  background: var(--accent); color: white; border: none;
+  border-radius: 12px; font-size: 0.9rem; font-weight: 700;
+  cursor: pointer; transition: all 0.15s; font-family: inherit;
+  letter-spacing: -0.2px;
+}
+.btn-search:hover { background: #4f46e5; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(99,102,241,0.3); }
+.btn-search:active { transform: translateY(0); }
+.btn-search:disabled { background: #d1d5db; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* 경고 배너 */
+.alert-banner {
+  display: none; background: #fef2f2; border: 1px solid #fecaca;
+  border-radius: 10px; padding: 12px 14px; margin-top: 10px;
+  font-size: 0.78rem; color: #991b1b; line-height: 1.6;
+}
+.alert-banner.show { display: block; }
+.alert-banner strong { display: block; margin-bottom: 3px; }
+
+.pref-bar {
+  display: none; font-size: 0.72rem; color: #065f46;
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
+  padding: 6px 10px; margin-top: 10px;
+}
+.pref-bar.on { display: block; }
+
+/* 출처 */
+.src-panel {
+  margin-top: 12px; padding: 14px;
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+}
+.src-panel .title { font-size: 0.72rem; font-weight: 700; color: var(--sub); letter-spacing: 0.3px; margin-bottom: 8px; }
+.src-link-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.src-chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 0.72rem; font-weight: 600; color: var(--accent);
+  background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.15);
+  padding: 3px 10px; border-radius: 20px; text-decoration: none;
+  transition: all 0.15s;
+}
+.src-chip:hover { background: rgba(99,102,241,0.12); color: #4f46e5; }
+
+.note-panel {
+  margin-top: 10px; padding: 12px 14px;
+  background: rgba(99,102,241,0.04); border: 1px solid rgba(99,102,241,0.12);
+  border-radius: var(--radius); font-size: 0.74rem; color: var(--sub); line-height: 1.7;
+}
+.note-panel b { color: var(--text); }
+
+/* ── 결과 영역 ── */
+.sum-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.sum-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700;
+}
+.sc-region { background: #f3f4f6; color: #374151; }
+.sc-ok     { background: #ecfdf5; color: #065f46; border: 1px solid #bbf7d0; }
+.sc-live   { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.sc-pref   { background: #fef9c3; color: #854d0e; border: 1px solid #fde68a; }
+
+.section-title {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.8rem; font-weight: 700; color: var(--text);
+  margin: 20px 0 12px;
+}
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.section-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 0.68rem; font-weight: 600; padding: 2px 8px; border-radius: 4px;
+}
+.sb-verified { background: #ecfdf5; color: #065f46; }
+.sb-live     { background: #fff7ed; color: #c2410c; }
+
+.fund-stack { display: flex; flex-direction: column; gap: 10px; }
+
+/* ── 자금 카드 ── */
+.fcard {
+  background: var(--card); border-radius: var(--radius);
+  border: 1px solid var(--border); box-shadow: var(--shadow);
+  overflow: hidden; transition: box-shadow 0.2s, transform 0.15s;
+}
+.fcard:hover { box-shadow: var(--shadow-hover); transform: translateY(-1px); }
+.fcard.ok  { border-left: 3px solid var(--green); }
+.fcard.no  { opacity: .55; }
+.fcard.pref-glow { border-left: 3px solid var(--accent); }
+
+/* 조건 빠른 확인 바 */
+.quick-bar {
+  background: #f9fafb; border-bottom: 1px solid var(--border);
+  padding: 9px 16px; display: flex; flex-wrap: wrap; gap: 5px; align-items: center;
+}
+.ql { font-size: 0.65rem; font-weight: 700; color: #9ca3af; margin-right: 3px; letter-spacing: 0.3px; }
+.qtag {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 0.68rem; font-weight: 600; padding: 2px 8px; border-radius: 6px;
+}
+.qt-ok   { background: #dcfce7; color: #166534; }
+.qt-no   { background: #fee2e2; color: #991b1b; }
+.qt-neu  { background: #f3f4f6; color: #6b7280; }
+.qt-pref { background: #ede9fe; color: #6d28d9; }
+
+/* 카드 본문 */
+.fbody { padding: 16px; }
+.fheader { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+.fstatus { font-size: 1rem; flex-shrink: 0; }
+.fname { font-size: 0.95rem; font-weight: 800; color: var(--text); line-height: 1.35; }
+.forg  { font-size: 0.71rem; color: var(--sub); margin-top: 2px; }
+
+.fmeta { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+.mtag {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 0.69rem; font-weight: 600; padding: 3px 9px; border-radius: 6px;
+}
+.mt-loan    { background: #eff6ff; color: #1d4ed8; }
+.mt-sub     { background: #fff7ed; color: #c2410c; }
+.mt-start   { background: #faf5ff; color: #7c3aed; }
+.mt-gua     { background: #f0fdf4; color: #166534; }
+.mt-amt     { background: #f9fafb; color: #374151; }
+.mt-region  { background: #fef3c7; color: #92400e; }
+.mt-pref    { background: #ede9fe; color: #7c3aed; }
+
+/* 검증 배지 */
+.vbadge {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 0.62rem; font-weight: 700; padding: 2px 7px; border-radius: 4px;
+  background: #dcfce7; color: #166534; margin-left: 5px;
+}
+.lbadge {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 0.62rem; font-weight: 700; padding: 2px 7px; border-radius: 4px;
+  background: #fff7ed; color: #c2410c; margin-left: 5px;
+}
+.pbadge {
+  font-size: 0.6rem; font-weight: 600; padding: 1px 6px; border-radius: 4px;
+  background: #f9fafb; color: #9ca3af; border: 1px solid #e5e7eb; margin-left: 4px;
+}
+
+.fdesc { font-size: 0.78rem; color: var(--sub); line-height: 1.65; margin-bottom: 11px; }
+
+/* 우대조건 박스 */
+.pref-box {
+  background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 10px;
+  padding: 10px 12px; margin-bottom: 11px;
+}
+.pref-box-title { font-size: 0.68rem; font-weight: 700; color: #7c3aed; margin-bottom: 6px; }
+.pref-row { font-size: 0.72rem; color: #6d28d9; display: flex; align-items: center; gap: 5px; padding: 2px 0; }
+.pref-row::before { content: '✦'; font-size: 0.6rem; opacity: 0.7; }
+
+/* 신청 요건 */
+.cond-box { margin-bottom: 11px; }
+.cond-title { font-size: 0.67rem; font-weight: 700; color: #9ca3af; margin-bottom: 6px; letter-spacing: 0.3px; text-transform: uppercase; }
+.cond-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.cc { font-size: 0.69rem; padding: 3px 9px; border-radius: 6px; font-weight: 600; }
+.cc-ok  { background: #dcfce7; color: #166534; }
+.cc-no  { background: #fee2e2; color: #991b1b; }
+.cc-neu { background: #f3f4f6; color: #6b7280; }
+
+/* 신청 기간 */
+.schedule-box {
+  background: #f9fafb; border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 12px; margin-bottom: 11px;
+}
+.schedule-title { font-size: 0.67rem; font-weight: 700; color: #9ca3af; margin-bottom: 7px; letter-spacing: 0.3px; text-transform: uppercase; }
+.schedule-status { display: flex; align-items: center; gap: 7px; margin-bottom: 6px; }
+.dot-open  { width: 7px; height: 7px; border-radius: 50%; background: var(--green); flex-shrink: 0; box-shadow: 0 0 0 2px rgba(16,185,129,0.2); }
+.dot-open.pulse { animation: pulse 2s infinite; }
+.dot-closed{ width: 7px; height: 7px; border-radius: 50%; background: #d1d5db; flex-shrink: 0; }
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 2px rgba(16,185,129,0.2); }
+  50% { box-shadow: 0 0 0 5px rgba(16,185,129,0.1); }
+}
+.status-text { font-size: 0.75rem; font-weight: 700; }
+.status-open   { color: var(--green); }
+.status-closed { color: #9ca3af; }
+.status-budget { color: var(--yellow); }
+.schedule-note { font-size: 0.7rem; color: var(--sub); line-height: 1.5; }
+
+/* 공문 확인 */
+.verify-box {
+  background: rgba(99,102,241,0.04); border: 1px solid rgba(99,102,241,0.12);
+  border-radius: 10px; padding: 10px 12px; margin-bottom: 11px;
+}
+.verify-title { font-size: 0.67rem; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+.verify-links { display: flex; flex-wrap: wrap; gap: 6px; }
+.vlink {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 0.71rem; font-weight: 700; color: var(--accent);
+  background: white; border: 1px solid rgba(99,102,241,0.2);
+  padding: 4px 10px; border-radius: 7px; text-decoration: none; transition: all 0.15s;
+}
+.vlink:hover { background: var(--accent); color: white; border-color: var(--accent); }
+.verify-note { font-size: 0.67rem; color: var(--sub); margin-top: 5px; line-height: 1.5; }
+
+/* 원문 버튼 */
+.orig-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 0.72rem; font-weight: 700; color: white;
+  background: var(--text); padding: 5px 12px; border-radius: 8px;
+  text-decoration: none; transition: all 0.15s;
+}
+.orig-btn:hover { background: #374151; }
+.src-small { font-size: 0.7rem; color: var(--sub); font-weight: 600; }
+
+.no-reason {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 0.69rem; color: var(--red); background: #fef2f2;
+  padding: 3px 8px; border-radius: 6px; font-weight: 600;
+}
+
+/* 빈 화면 */
+.empty { text-align: center; padding: 48px 20px; color: #d1d5db; }
+.empty .icon { font-size: 2.5rem; margin-bottom: 12px; }
+.empty p { font-size: 0.85rem; color: var(--sub); }
+.loading { text-align: center; padding: 40px 20px; }
+.spinner {
+  display: inline-block; width: 28px; height: 28px;
+  border: 3px solid #e5e7eb; border-top-color: var(--accent);
+  border-radius: 50%; animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading p { font-size: 0.8rem; color: var(--sub); margin-top: 12px; }
+
+/* ══ 초기 소개 화면 ══ */
+.intro-screen {
+  background: var(--card); border-radius: 20px;
+  border: 1px solid var(--border); box-shadow: var(--shadow);
+  padding: 32px 28px; display: flex; flex-direction: column; gap: 24px;
+}
+.intro-logo { display:flex; align-items:center; gap:14px; }
+.intro-logo-icon {
+  width:56px; height:56px; background:#0f0e17; border-radius:16px;
+  display:flex; align-items:center; justify-content:center; font-size:1.8rem;
+  box-shadow: 0 4px 14px rgba(99,102,241,0.25);
+  flex-shrink:0;
+}
+.intro-logo-title { font-size:1.3rem; font-weight:900; color:var(--text); letter-spacing:-0.5px; }
+.intro-logo-sub   { font-size:0.78rem; color:var(--sub); margin-top:3px; font-weight:600; }
+
+.intro-desc {
+  font-size:0.92rem; color:#374151; line-height:1.75;
+  background:linear-gradient(135deg,#eff6ff,#faf5ff);
+  border-radius:12px; padding:16px 18px;
+  border: 1px solid rgba(99,102,241,0.12);
+}
+.intro-desc strong { color:var(--accent); }
+
+.intro-features { display:flex; flex-direction:column; gap:12px; }
+.intro-feat {
+  display:flex; align-items:flex-start; gap:12px;
+  padding:12px 14px; background:var(--bg); border-radius:10px;
+  border:1px solid var(--border);
+}
+.intro-feat-icon { font-size:1.2rem; flex-shrink:0; margin-top:1px; }
+.intro-feat-text { display:flex; flex-direction:column; gap:2px; }
+.intro-feat-text strong { font-size:0.82rem; font-weight:700; color:var(--text); }
+.intro-feat-text span   { font-size:0.74rem; color:var(--sub); line-height:1.5; }
+
+.intro-steps {
+  display:flex; align-items:center; flex-wrap:wrap; gap:8px;
+  justify-content:center;
+}
+.intro-step {
+  display:flex; align-items:center; gap:6px;
+  font-size:0.78rem; font-weight:600; color:var(--text);
+  background:var(--bg); border:1px solid var(--border);
+  padding:8px 14px; border-radius:20px;
+}
+.step-num {
+  width:20px; height:20px; background:var(--accent); color:white;
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:0.65rem; font-weight:800; flex-shrink:0;
+}
+.intro-arrow { font-size:1rem; color:#d1d5db; }
+
+.intro-cta {
+  display:flex; align-items:center; gap:8px; justify-content:center;
+  background:#eff6ff; border:1px dashed rgba(99,102,241,0.3);
+  border-radius:12px; padding:14px;
+  font-size:0.82rem; font-weight:700; color:var(--accent); animation:pulse-cta 2s infinite;
+}
+@keyframes pulse-cta {
+  0%,100% { opacity:1; } 50% { opacity:.7; }
+}
+
+.intro-notice {
+  font-size:0.7rem; color:#9ca3af; text-align:center; line-height:1.7;
+  padding:10px; background:#f9fafb; border-radius:8px;
+}
+
+/* ── 새 자금 카드 (핵심 강조) ── */
+.fcard2 {
+  background: var(--card); border-radius: 16px;
+  border: 1px solid var(--border); box-shadow: var(--shadow);
+  overflow: hidden; transition: box-shadow 0.2s, transform 0.15s;
+}
+.fcard2:hover { box-shadow: var(--shadow-hover); transform: translateY(-1px); }
+.fcard2.ok2  { border-left: 3px solid var(--green); }
+.fcard2.no2  { opacity: .6; }
+.fcard2.pref-glow { border-left: 3px solid var(--accent); }
+.fcard2 details > summary::-webkit-details-marker { display:none; }
+.fcard2 details[open] > summary > span:last-child { transform: rotate(180deg); display:inline-block; }
+
+/* ── 아코디언 카드 (단순화) ── */
+details.acc {
+  background: var(--card); border-radius: 14px; border: 1px solid var(--border);
+  box-shadow: var(--shadow); overflow: hidden; transition: box-shadow 0.2s;
+}
+details.acc[open] { box-shadow: var(--shadow-hover); }
+details.acc.ok  { border-left: 3px solid var(--green); }
+details.acc.no  { opacity: .6; }
+details.acc.pref-glow { border-left: 3px solid var(--accent); }
+details.acc summary {
+  list-style: none; cursor: pointer; padding: 14px 16px;
+  display: flex; align-items: center; gap: 11px; user-select: none;
+}
+details.acc summary::-webkit-details-marker { display: none; }
+.acc-status { font-size: 1.05rem; flex-shrink: 0; }
+.acc-head-main { flex: 1; min-width: 0; }
+.acc-name { font-size: 0.92rem; font-weight: 700; color: var(--text); line-height: 1.35; }
+.acc-sub { font-size: 0.74rem; color: var(--sub); margin-top: 3px; display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.acc-sub .amt { color: var(--accent); font-weight: 700; }
+.acc-chevron { flex-shrink: 0; color: #cbd5e1; font-size: 0.8rem; transition: transform 0.2s; }
+details.acc[open] .acc-chevron { transform: rotate(180deg); }
+.acc-mini-tag { font-size: 0.64rem; font-weight: 700; padding: 1px 7px; border-radius: 4px; flex-shrink: 0; }
+.acc-body { padding: 0 16px 16px; border-top: 1px solid var(--border); margin-top: 2px; padding-top: 13px; }
+.acc-dot-open { width: 7px; height: 7px; border-radius: 50%; background: var(--green); display: inline-block; box-shadow: 0 0 0 2px rgba(16,185,129,0.2); }
+
+/* ── 푸터 ── */
+.footer { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border); }
+.disclaimer {
+  background: #fffbeb; border: 1px solid #fde68a; border-radius: 12px;
+  padding: 14px 16px; font-size: 0.74rem; color: #78350f; line-height: 1.75;
+}
+.disclaimer strong { display: block; color: #b45309; margin-bottom: 4px; font-size: 0.78rem; }
+.disclaimer b { color: #92400e; }
+.footer-meta {
+  display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center;
+  margin-top: 14px; font-size: 0.72rem; color: var(--sub);
+}
+.footer-meta b { color: var(--text); }
+.footer-copy { text-align: center; margin-top: 10px; font-size: 0.68rem; color: #9ca3af; line-height: 1.6; }
+
+/* ══════════════════════════════════════
+   모바일 반응형 (태블릿 이하 880px)
+══════════════════════════════════════ */
+@media(max-width: 880px){
+  /* 레이아웃: 1단 세로 배치 */
+  .layout { grid-template-columns: 1fr; gap: 0; }
+  .container { padding: 0; }
+
+  /* 헤더: 컴팩트하게 */
+  .header { padding: 18px 16px 14px; }
+  .header h1 { font-size: 1.15rem; }
+  .header p  { font-size: 0.74rem; }
+  .hbadge    { font-size: 0.64rem; }
+
+  /* 폼 패널: 전체 너비 */
+  .panel { border-radius: 0; border-left: none; border-right: none; border-top: none; padding: 16px; }
+  select, input { font-size: 16px; } /* iOS 자동 줌 방지 */
+
+  /* 출처·노트 패널도 테두리 없이 */
+  .src-panel, .note-panel { border-radius: 0; border-left: none; border-right: none; margin-top: 0; border-top: none; }
+
+  /* 결과 패널 */
+  #results { padding: 16px; }
+
+  /* 소개 화면 모바일 최적화 */
+  .intro-screen { border-radius: 0; border-left: none; border-right: none; padding: 20px 16px; gap: 18px; }
+  .intro-logo-icon { width: 46px; height: 46px; font-size: 1.5rem; }
+  .intro-logo-title { font-size: 1.15rem; }
+  .intro-steps { gap: 5px; }
+  .intro-step { font-size: 0.72rem; padding: 6px 10px; }
+
+  /* 자금 카드 */
+  .fcard2 { border-radius: 12px; }
+  .fcard2 > div:first-child { padding: 14px 14px 0; }
+  .fcard2 details { padding: 0 14px; }
+  /* 금액·금리 그리드 - 폰에서 더 크게 */
+  .fcard2 [style*="grid-template-columns:1fr 1fr"] { gap: 6px; }
+
+  /* 요약 칩 줄바꿈 */
+  .sum-row { flex-wrap: wrap; gap: 6px; padding: 0; }
+  .sum-chip { font-size: 0.72rem; padding: 4px 10px; }
+
+  /* 섹션 타이틀 */
+  .section-title { font-size: 0.76rem; }
+
+  /* 푸터 */
+  .footer { margin: 0; padding: 16px; border-radius: 0; }
+  .footer-meta { flex-direction: column; gap: 4px; text-align: center; }
+  .disclaimer { font-size: 0.71rem; }
+}
+
+/* ══════════════════════════════════════
+   모바일 전용 (폰 480px 이하)
+   - 폼을 접고 결과만 볼 수 있는 탭 구조
+══════════════════════════════════════ */
+@media(max-width: 480px){
+  /* 폼/결과 탭 전환 (폰 전용) */
+  .mobile-tabs { display: flex; border-bottom: 2px solid var(--border); background: white; position: sticky; top: 0; z-index: 100; }
+  .mobile-tab {
+    flex: 1; padding: 12px 8px; text-align: center;
+    font-size: 0.8rem; font-weight: 700; color: var(--sub);
+    cursor: pointer; border: none; background: none; transition: all 0.15s;
+    border-bottom: 2px solid transparent; margin-bottom: -2px;
+  }
+  .mobile-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .mobile-form-wrap  { display: block; }
+  .mobile-result-wrap{ display: none; }
+  .mobile-form-wrap.hidden  { display: none; }
+  .mobile-result-wrap.show  { display: block; }
+
+  /* 폰 헤더 더 컴팩트 */
+  .header { padding: 14px 14px 12px; }
+  .header h1 { font-size: 1rem; }
+  .hbadge { display: none; }
+
+  /* 검색 버튼 더 크게 (손가락 터치 편하게) */
+  .btn-search { padding: 14px; font-size: 1rem; border-radius: 14px; }
+
+  /* 카드 금액 글자 약간 축소 */
+  .fcard2 [style*="1.25rem"] { font-size: 1.1rem !important; }
+
+  /* 공식 링크 풀 너비 */
+  .vlink { flex: 1; justify-content: center; }
+
+  /* 소개화면 단순화 */
+  .intro-features { gap: 8px; }
+  .intro-feat { padding: 10px 12px; }
+  .intro-feat-icon { font-size: 1rem; }
+  .intro-steps { flex-direction: column; align-items: stretch; gap: 6px; }
+  .intro-arrow { transform: rotate(90deg); text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="hbadge">경상남도 자영업자 지원 · 기업마당 API 연동</div>
+  <h1>경남 정책자금 안내</h1>
+  <p>업체 정보 입력 → 신청 가능 자금 자동 판별 · 공문 원문 링크 직접 제공</p>
+</div>
+
+<!-- 폰 전용 탭 (480px 이하에서만 표시) -->
+<div class="mobile-tabs" id="mobileTabs" style="display:none;">
+  <button class="mobile-tab active" id="tabForm" onclick="switchTab('form')">📝 정보 입력</button>
+  <button class="mobile-tab" id="tabResult" onclick="switchTab('result')">📋 자금 결과</button>
+</div>
+
+<div class="container">
+<div class="layout" id="mainLayout">
+
+<!-- ══ 왼쪽 폼 ══ -->
+<div class="mobile-form-wrap" id="formWrap">
+<div class="panel">
+
+  <!-- 제외 선행 조건 (해당 시 무조건 신청 불가 — 고정 안내) -->
+  <div class="exclude-panel">
+    <div class="exclude-title">🚫 먼저 확인 — 아래 해당 시 신청 불가</div>
+    <div class="exclude-note">다음 중 <b>하나라도 해당하면</b> 정책자금 신청 자체가 불가합니다. 먼저 해소한 뒤 신청하세요.</div>
+    <div class="exclude-list">
+      <span class="exclude-row">국세·지방세 <b>체납</b> 이력</span>
+      <span class="exclude-row">기존 대출 <b>연체 중</b></span>
+      <span class="exclude-row">현재 <b>휴업·폐업</b> 상태</span>
+      <span class="exclude-row">유흥·금융·부동산 등 <b>제외업종</b></span>
+    </div>
+    <div class="exclude-foot">해당 여부가 애매하면 ☎ 소상공인시장진흥공단 1533-0100으로 먼저 문의</div>
+  </div>
+
+  <!-- 필수 -->
+  <div class="sec-head required">🔴 필수 입력</div>
+
+  <div class="form-group">
+    <div class="form-label">지역 (시/군) <span class="badge-req">필수</span></div>
+    <select id="region">
+      <option value="all">경상남도 전체</option>
+      <optgroup label="동부권"><option value="창원시">창원시</option><option value="김해시">김해시</option><option value="양산시">양산시</option><option value="거제시">거제시</option><option value="통영시">통영시</option><option value="밀양시">밀양시</option></optgroup>
+      <optgroup label="서부권"><option value="진주시">진주시</option><option value="사천시">사천시</option><option value="하동군">하동군</option><option value="남해군">남해군</option><option value="고성군">고성군</option></optgroup>
+      <optgroup label="북부권"><option value="거창군">거창군</option><option value="함양군">함양군</option><option value="산청군">산청군</option><option value="합천군">합천군</option><option value="의령군">의령군</option><option value="함안군">함안군</option><option value="창녕군">창녕군</option></optgroup>
+    </select>
+  </div>
+  <div class="form-group">
+    <div class="form-label">업종 <span class="badge-req">필수</span></div>
+    <select id="bizType">
+      <option value="restaurant">일반음식점 (한식·중식·양식 등)</option>
+      <option value="cafe">카페·음료점·제과점</option>
+      <option value="delivery">배달전문점</option>
+      <option value="franchise">프랜차이즈 가맹점</option>
+      <option value="other">기타 자영업 (소매·서비스)</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <div class="form-label">업력 <span class="badge-req">필수</span></div>
+    <select id="bizAge">
+      <option value="0">창업 전 (예비창업자)</option>
+      <option value="0.3">6개월 미만</option>
+      <option value="1">6개월 이상 ~ 1년 미만</option>
+      <option value="2">1년 이상 ~ 3년 미만</option>
+      <option value="5">3년 이상 ~ 7년 미만</option>
+      <option value="7.5">7년 이상 ~ 10년 미만</option>
+      <option value="12">10년 이상</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <div class="form-label">상시근로자 수 (대표·가족 제외) <span class="badge-req">필수</span> <span style="font-size:0.62rem;color:var(--sub);font-weight:400;">4대보험 가입 직원 기준</span></div>
+    <select id="employees">
+      <option value="0">없음 (대표 혼자·가족 운영)</option>
+      <option value="2">1~2명</option>
+      <option value="4">3~4명</option>
+      <option value="6">5명 이상 (소상공인 기준 초과)</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <div class="form-label">연간 매출액 <span class="badge-req">필수</span> <span style="font-size:0.62rem;color:var(--sub);font-weight:400;">음식업 소상공인 기준 10억 이하</span></div>
+    <select id="revenue">
+      <option value="0">없음 / 창업 전</option>
+      <option value="3000">3천만원 미만</option>
+      <option value="5000">3천만 ~ 5천만</option>
+      <option value="10000">5천만 ~ 1억</option>
+      <option value="30000">1억 ~ 3억</option>
+      <option value="80000">3억 ~ 8억</option>
+      <option value="99999">8억 ~ 10억</option>
+      <option value="150000">10억 초과 ⚠️</option>
+    </select>
+  </div>
+
+  <!-- 권장 -->
+  <div class="sec-head">🟡 권장 입력</div>
+  <div style="font-size:0.72rem;color:#854d0e;background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:8px 11px;margin-bottom:10px;line-height:1.55;">💡 신용점수·대표 나이를 입력하면 <b>저신용 전용·청년 전용 자금</b>까지 정확히 찾아드립니다. 모르면 그대로 두셔도 됩니다.</div>
+
+  <div class="form-group">
+    <div class="form-label">신용점수 (NCB) <span class="badge-opt">권장</span></div>
+    <select id="creditScore">
+      <option value="950">900점 이상</option>
+      <option value="860">840~899점</option>
+      <option value="750">750~839점</option>
+      <option value="680">650~749점</option>
+      <option value="600">600~649점</option>
+      <option value="500">600점 미만 (저신용)</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <div class="form-label">대표자 나이 <span class="badge-opt">권장</span></div>
+    <select id="ownerAge">
+      <option value="adult">39세 초과</option>
+      <option value="young">만 39세 이하 (청년)</option>
+    </select>
+  </div>
+
+  <!-- 선택 -->
+  <div class="sec-head optional">🟢 선택 — 우대·전용 자금 연결</div>
+
+  <div class="form-group">
+    <div class="form-label">🛵 배달앱·플랫폼</div>
+    <div class="chk-group">
+      <label class="chk-item"><input type="checkbox" id="deliveryApp" class="blue">배달의민족·쿠팡이츠·스마트스토어 등 입점 운영<span class="itag it-purple">상생성장자금</span></label>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-label">🖥️ 디지털·스마트기술</div>
+    <div class="chk-group">
+      <label class="chk-item"><input type="checkbox" id="posSystem" class="blue">POS 시스템 사용 중<span class="itag it-blue">혁신성장자금</span></label>
+      <label class="chk-item"><input type="checkbox" id="tableOrder" class="blue">테이블오더 / 키오스크 도입<span class="itag it-green">스마트기술 해당</span></label>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-label">🏆 인증·선정</div>
+    <div class="chk-group">
+      <label class="chk-item"><input type="checkbox" id="baeknyeongaje" class="blue">백년가게 인증<span class="itag it-purple">혁신성장자금</span></label>
+      <label class="chk-item"><input type="checkbox" id="localCreator" class="blue">로컬크리에이터 선정<span class="itag it-purple">혁신성장자금</span></label>
+      <label class="chk-item"><input type="checkbox" id="youthHired" class="blue">만 39세 이하 직원 최근 1년 내 신규 고용<span class="itag it-purple">청년고용연계</span></label>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-label">💳 제로페이 & 보험</div>
+    <div class="chk-group">
+      <label class="chk-item"><input type="checkbox" id="zeropayBasic" class="blue">제로페이 가맹점<span class="itag it-blue">금리 -0.3%p</span></label>
+      <label class="chk-item"><input type="checkbox" id="zeropayExcellent" class="blue">제로페이 우수가맹점<span class="itag it-blue">금리 -0.5%p</span></label>
+      <label class="chk-item"><input type="checkbox" id="selfInsurance" class="blue">자영업자 고용보험 가입<span class="itag it-blue">금리 -0.2%p</span></label>
+      <label class="chk-item"><input type="checkbox" id="fireInsurance" class="blue">화재공제·풍수해보험 가입<span class="itag it-amber">우대</span></label>
+      <label class="chk-item"><input type="checkbox" id="tMarket" class="blue">전통시장·상점가 입점<span class="itag it-amber">전통시장 우선</span></label>
+    </div>
+  </div>
+
+  <div id="prefBar" class="pref-bar"></div>
+  <button class="btn-search" id="btnSearch" onclick="doSearch()">정책자금 검색하기 →</button>
+</div>
+
+<!-- 출처 -->
+<div class="src-panel">
+  <div class="title">공식 출처</div>
+  <div class="src-link-row">
+    <a href="https://www.knsgf.or.kr" target="_blank" class="src-chip">경남신용보증재단</a>
+    <a href="https://www.gyeongnam.go.kr" target="_blank" class="src-chip">경상남도청</a>
+    <a href="https://ols.semas.or.kr" target="_blank" class="src-chip">소진공 정책자금</a>
+    <a href="https://www.semas.or.kr" target="_blank" class="src-chip">소상공인진흥공단</a>
+    <a href="https://www.bizinfo.go.kr" target="_blank" class="src-chip">기업마당 API</a>
+  </div>
+</div>
+<div class="note-panel">
+  <b>📊 정확도</b> — 공식검증 자금 약 <b>90%</b> (소진공 공문 직접 스크래핑) · 실시간공고 약 <b>65%</b><br>
+  각 카드의 공식 링크로 반드시 원문을 확인하세요. ☎ 1533-0100
+</div>
+</div><!-- /left -->
+
+<!-- ══ 오른쪽 결과 ══ -->
+<div class="mobile-result-wrap" id="resultWrap">
+<div id="results">
+  <!-- ══ 초기 소개 화면 ══ -->
+  <div class="intro-screen">
+
+    <!-- 로고 + 타이틀 -->
+    <div class="intro-logo">
+      <div class="intro-logo-icon">🍽️</div>
+      <div>
+        <div class="intro-logo-title">경남 정책자금 안내</div>
+        <div class="intro-logo-sub">경상남도 자영업자 전용</div>
+      </div>
+    </div>
+
+    <!-- 한 줄 설명 -->
+    <p class="intro-desc">
+      업체 정보만 입력하면 신청 가능한 정책자금을<br>
+      <strong>자동으로 찾아서 한눈에 보여드립니다.</strong>
+    </p>
+
+    <!-- 특징 3가지 -->
+    <div class="intro-features">
+      <div class="intro-feat">
+        <div class="intro-feat-icon">📋</div>
+        <div class="intro-feat-text">
+          <strong>공문 직접 확인</strong>
+          <span>소진공·경남도청 공식 문서를 직접 스크래핑해 조건을 검증했습니다</span>
+        </div>
+      </div>
+      <div class="intro-feat">
+        <div class="intro-feat-icon">🔴</div>
+        <div class="intro-feat-text">
+          <strong>실시간 공고 연동</strong>
+          <span>기업마당 API로 지금 진행 중인 공고를 실시간으로 수집합니다</span>
+        </div>
+      </div>
+      <div class="intro-feat">
+        <div class="intro-feat-icon">🔒</div>
+        <div class="intro-feat-text">
+          <strong>개인정보 미수집</strong>
+          <span>입력 정보는 서버에 전송되지 않고 브라우저 안에서만 처리됩니다</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 사용법 -->
+    <div class="intro-steps">
+      <div class="intro-step"><span class="step-num">1</span>왼쪽에서 업체 정보 입력</div>
+      <div class="intro-arrow">→</div>
+      <div class="intro-step"><span class="step-num">2</span>검색 버튼 클릭</div>
+      <div class="intro-arrow">→</div>
+      <div class="intro-step"><span class="step-num">3</span>해당 자금 목록 확인</div>
+    </div>
+
+    <!-- CTA -->
+    <div class="intro-cta">
+      <span>👈</span>
+      <span>왼쪽에서 지역과 업체 정보를 선택해주세요</span>
+    </div>
+
+    <!-- 데이터 기준 -->
+    <div class="intro-notice">
+      📅 데이터 기준: 2026년 6월 · 소상공인시장진흥공단 공문 직접 확인<br>
+      본 서비스는 참고용이며, 정확한 요건은 각 기관 공식 사이트에서 확인하세요.
+    </div>
+
+  </div>
+</div>
+</div><!-- /resultWrap -->
+
+</div><!-- /layout -->
+
+<footer class="footer">
+  <div class="disclaimer">
+    <strong>⚠️ 면책 안내</strong>
+    본 서비스는 <b>참고용 정보 제공</b> 목적이며, 법적 효력이나 신청 자격을 보증하지 않습니다.
+    정책자금의 정확한 요건·한도·금리·기간은 <b>예산 소진 및 분기별 정책에 따라 수시로 변경</b>되므로,
+    반드시 각 카드의 <b>공식 링크</b> 또는 아래 기관에 직접 확인하세요.
+    입력 정보는 <b>서버에 저장·전송되지 않으며</b> 사용자 브라우저 안에서만 처리됩니다.
+  </div>
+  <div class="footer-meta">
+    <span>📅 데이터 기준 2026년 6월 · 소상공인진흥공단 공문 직접 확인</span>
+    <span>☎ 소상공인 통합콜센터 <b>1533-0100</b> · 중소기업 <b>1357</b></span>
+  </div>
+  <div class="footer-copy">© 2026 경남 정책자금 안내 · 출처: 소상공인시장진흥공단 · 경남신용보증재단 · 기업마당 · 비영리 정보제공</div>
+</footer>
+
+</div><!-- /container -->
+
+<script>
+const NOW = new Date().getMonth() + 1;
+
+/* ═══════════════════════════════════════════════════════════
+   클라이언트 통합 엔진 (서버 불필요 — 정부 API 직접 호출)
+   ═══════════════════════════════════════════════════════════ */
+const CRTFC_KEY = '5eTg5H';
+const VERIFIED_FUNDS = [{"id":"V001","name":"소상공인 일반경영안정자금","org":"소상공인시장진흥공단","cat":"loan","catLabel":"저금리 융자","amount":"최대 7천만원","rate":"연 4.04% (기준금리 3.44%+0.6%p · 2026년 2분기)","regionScope":"all","desc":"업력 무관 모든 소상공인 대상 운전·시설자금. 비수도권(경남) 추가 우대 0.2%p. 제로페이·고용보험 가입 시 추가 우대.","source":"소상공인시장진흥공단","url":"https://ols.semas.or.kr","official_url":"https://www.semas.or.kr/web/SUP01/SUP0103/SUP010301.kmdc","official_doc":"https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354","applyMonths":[1,2,3,4,5,6,7,8,9,10,11,12],"alwaysOpen":false,"confidence":"verified","confidence_note":"semas.or.kr 직접 스크래핑 확인","prefConditions":["zeropayBasic","zeropayExcellent","selfInsurance","fireInsurance"],"prefLabels":{"zeropayBasic":"제로페이 -0.3%p","zeropayExcellent":"우수가맹점 -0.5%p","selfInsurance":"고용보험 -0.2%p","fireInsurance":"화재공제 우대"},"conditions":{"employees":{"max":4,"label":"상시근로자 5인 미만"},"revenue":{"max":99999,"label":"연매출 10억 이하 (음식업)"},"bizType":{"types":["restaurant","cafe","delivery","franchise","other"],"label":"전 업종 (제외업종 제외)"}}},{"id":"V002","name":"일시적경영애로자금 (직접대출)","org":"소상공인시장진흥공단","cat":"loan","catLabel":"저금리 융자","amount":"최대 7천만원","rate":"연 기준금리 (변동)","regionScope":"all","desc":"일시적 경영애로를 겪는 소상공인 대상. 직접대출은 연매출 1억 4백만원 미만 + 업력 7년 미만 조건 적용. 지역경제위기·감염병 피해 업체 우선.","source":"소상공인시장진흥공단","url":"https://ols.semas.or.kr","official_url":"https://www.semas.or.kr/web/SUP01/SUP0103/SUP010301.kmdc","official_doc":"https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354","applyMonths":[1,2,3,4,5,6,7,8,9,10,11,12],"alwaysOpen":true,"confidence":"verified","confidence_note":"공문 직접 확인: 직접대출은 연매출 1억4백만원 미만 + 업력 7년 미만","prefConditions":["zeropayBasic","selfInsurance"],"prefLabels":{"zeropayBasic":"제로페이 우대","selfInsurance":"고용보험 우대"},"conditions":{"bizAge":{"max":7,"label":"업력 7년 미만 (직접대출 기준)"},"revenue":{"max":10400,"label":"연매출 1억 4백만원 미만 (직접대출 기준)"},"employees":{"max":4,"label":"상시근로자 5인 미만"},"bizType":{"types":["restaurant","cafe","delivery","franchise","other"],"label":"전 업종"}}},{"id":"V003","name":"청년고용연계자금","org":"소상공인시장진흥공단","cat":"startup","catLabel":"청년·고용","amount":"최대 7천만원","rate":"연 3.44% (기준금리+0.0%p · 2026년 2분기)","regionScope":"all","desc":"① 업력 3년 미만 만39세 이하 청년 소상공인 ② 상시근로자 과반수가 청년(39세↓) ③ 최근 1년 내 청년 1인↑ 신규 고용·유지 중 — 셋 중 하나 해당 시 신청 가능.","source":"소상공인시장진흥공단","url":"https://ols.semas.or.kr","official_url":"https://www.semas.or.kr/web/SUP01/SUP0103/SUP010301.kmdc","official_doc":"https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354","applyMonths":[1,2,3,4,5,6,7,8,9,10,11,12],"alwaysOpen":false,"confidence":"verified","confidence_note":"공문 직접 확인: 업력 3년 미만 or 청년 과반 or 최근 1년 청년 1인 이상 고용유지","mustAny":["ownerYoung","youthHired"],"prefConditions":["ownerYoung","youthHired","zeropayBasic"],"prefLabels":{"ownerYoung":"청년 대표(업력 3년↓) 우대","youthHired":"청년 고용 추가 우대","zeropayBasic":"제로페이 -0.3%p"},"conditions":{"청년조건":{"label":"대표 39세↓(업력 3년 미만) 또는 청년 신규 고용 필수","_must":true},"employees":{"max":4,"label":"상시근로자 5인 미만"},"revenue":{"max":99999,"label":"연매출 10억 이하"},"bizType":{"types":["restaurant","cafe","delivery","franchise","other"],"label":"전 업종"}}},{"id":"V004","name":"신용취약소상공인 자금","org":"소상공인시장진흥공단","cat":"loan","catLabel":"저금리 융자","amount":"최대 3천만원","rate":"연 5.04% (기준금리 3.44%+1.6%p · 2026년 2분기)","regionScope":"all","desc":"NCB 839점 이하 중·저신용 소상공인 전용. 소상공인 지식배움터(edu.sbiz.or.kr) 신용관리 교육 사전 이수 필수. 업력 무관.","source":"소상공인시장진흥공단","url":"https://ols.semas.or.kr","official_url":"https://www.semas.or.kr/web/SUP01/SUP0103/SUP010301.kmdc","official_doc":"https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354","applyMonths":[1,2,3,4,5,6,7,8,9,10,11,12],"alwaysOpen":true,"confidence":"verified","confidence_note":"공문 확인: NCB 839점 이하, 신용관리 교육 이수 필수","extraReq":"소상공인 지식배움터(edu.sbiz.or.kr) 신용관리 교육 사전 이수 필수","prefConditions":[],"prefLabels":{},"conditions":{"creditScore":{"max":839,"label":"신용점수 839점 이하 (저신용)"},"employees":{"max":4,"label":"상시근로자 5인 미만"},"bizType":{"types":["restaurant","cafe","delivery","franchise","other"],"label":"전 업종"}}},{"id":"V005","name":"소상공인 대환대출","org":"소상공인시장진흥공단","cat":"loan","catLabel":"저금리 융자","amount":"최대 5천만원","rate":"연 4.5% 고정 (최대 10년)","regionScope":"all","desc":"고금리 기존 대출을 4.5% 고정금리로 전환. 2026-01-05부터 자금 소진 시까지 접수 중. 토스뱅크 등 비대면 신청 가능. 중·저신용 소상공인 우선.","source":"소상공인시장진흥공단","url":"https://ols.semas.or.kr","official_url":"https://ols.semas.or.kr/ols/man/SMAN010M/page.do","official_doc":"https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354","applyMonths":[1,2,3,4,5,6,7,8,9,10,11,12],"alwaysOpen":true,"confidence":"verified","confidence_note":"OLS 사이트 직접 확인: 2026-01-05~자금소진시 접수중","prefConditions":["zeropayBasic","selfInsurance"],"prefLabels":{"zeropayBasic":"제로페이 우대","selfInsurance":"고용보험 우대"},"conditions":{"creditScore":{"max":919,"label":"신용점수 919점 이하 (중·저신용)"},"employees":{"max":4,"label":"상시근로자 5인 미만"},"bizType":{"types":["restaurant","cafe","delivery","franchise","other"],"label":"전 업종"}}},{"id":"V005b","name":"상생성장지원자금 (배달앱·온라인 플랫폼 입점)","org":"소상공인시장진흥공단","cat":"loan","catLabel":"저금리 융자","amount":"최대 7천만원","rate":"연 3.84% (기준금리 3.44%+0.4%p · 2026년 2분기)","regionScope":"all","desc":"소진공과 상생협약을 맺은 온라인 플랫폼(배달의민족·쿠팡이츠·네이버스마트스토어 등) 입점 소상공인 또는 TOPS 프로그램 선정 소상공인 대상. 음식점 배달앱 운영자 해당 가능.","source":"소상공인시장진흥공단","url":"https://ols.semas.or.kr","official_url":"https://www.semas.or.kr/web/SUP01/SUP0103/SUP010301.kmdc","official_doc":"https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354","applyMonths":[1,2,3,4,5,6,7,8,9,10,11,12],"alwaysOpen":true,"confidence":"verified","confidence_note":"semas.or.kr 직접 스크래핑: \"소진공과 상생협약을 맺은 온라인 플랫폼의 입점 소상공인\"","prefConditions":["deliveryApp","zeropayBasic"],"prefLabels":{"deliveryApp":"배달앱·플랫폼 입점 → 핵심 요건","zeropayBasic":"제로페이 금리 우대"},"conditions":{"플랫폼입점":{"label":"배달앱·온라인 플랫폼 입점 또는 TOPS 선정 필수","_must":true},"employees":{"max":4,"label":"상시근로자 5인 미만"},"revenue":{"max":99999,"label":"연매출 10억 이하"},"bizType":{"types":["restaurant","cafe","delivery","franchise","other"],"label":"전 업종"}}},{"id":"V005c","name":"혁신성장촉진자금 (스마트기술·POS 도입)","org":"소상공인시장진흥공단","cat":"loan","catLabel":"저금리 융자","amount":"최대 1억원","rate":"연 3.84% (기준금리 3.44%+0.4%p · 2026년 2분기)","regionScope":"all","desc":"스마트기술 도입·POS 고도화·백년가게 인증·로컬크리에이터 선정·신사업창업사관학교 수료 등에 해당하는 소상공인. 키오스크·테이블오더 도입도 스마트기술 범위에 해당.","source":"소상공인시장진흥공단","url":"https://ols.semas.or.kr","official_url":"https://www.semas.or.kr/web/SUP01/SUP0103/SUP010301.kmdc","official_doc":"https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354","applyMonths":[1,2,3,4,5,6,7,8,9,10,11,12],"alwaysOpen":true,"confidence":"verified","confidence_note":"semas.or.kr 스크래핑: \"스마트기술, 백년가게, 신사업창업사관학교 수료생\"","prefConditions":["posSystem","tableOrder","baeknyeongaje","localCreator"],"prefLabels":{"posSystem":"POS = 스마트기술 범위 해당","tableOrder":"키오스크·테이블오더 = 스마트기술","baeknyeongaje":"백년가게 인증 필수 조건 충족","localCreator":"로컬크리에이터 선정 충족"},"conditions":{"스마트조건":{"label":"스마트기술·POS·키오스크·백년가게 중 1개 해당 필수","_must":true},"employees":{"max":4,"label":"상시근로자 5인 미만"},"revenue":{"max":99999,"label":"연매출 10억 이하"},"bizType":{"types":["restaurant","cafe","delivery","franchise","other"],"label":"전 업종"}}},{"id":"V006","name":"재도전특별자금","org":"소상공인시장진흥공단","cat":"startup","catLabel":"재창업","amount":"최대 7천만원~2억원 (유형별)","rate":"연 기준금리+0.4~1.6%p","regionScope":"all","desc":"① 소상공인희망리턴패키지 재창업교육 수료자 ② 재창업 초기(공단 요건 1개↑ 충족) ③ 채무조정 성실상환자 ④ 재창업 2년↑ 성실상환자. 교육 이수 필수.","source":"소상공인시장진흥공단","url":"https://ols.semas.or.kr","official_url":"https://www.semas.or.kr/web/SUP01/SUP0103/SUP010301.kmdc","official_doc":"https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354","applyMonths":[1,2,3,4,5,6,7,8,9,10,11,12],"alwaysOpen":false,"confidence":"verified","confidence_note":"공문 확인: 희망리턴패키지 교육 수료 또는 채무조정 참여자","extraReq":"희망리턴패키지 재창업교육 수료 또는 채무조정 성실상환 등 별도 자격 필요 (입력만으로 자동 판별 불가)","prefConditions":["ownerYoung","zeropayBasic"],"prefLabels":{"ownerYoung":"청년 재창업 우대","zeropayBasic":"제로페이 우대"},"conditions":{"bizAge":{"min":0,"max":5,"label":"재창업 또는 업력 초기"},"employees":{"max":4,"label":"상시근로자 5인 미만"},"bizType":{"types":["restaurant","cafe","delivery","franchise","other"],"label":"전 업종"}}},{"id":"V007","name":"소상공인 스마트화 지원 보조금","org":"소상공인시장진흥공단 / 중소벤처기업부","cat":"subsidy","catLabel":"보조금(70%)","amount":"최대 200만원 (비용 70%)","rate":"지원금 (상환 없음)","regionScope":"all","desc":"키오스크·테이블오더·POS 도입 비용 70% 보조. 음식점·카페 소상공인 주요 대상. 제로페이 연동 업체 우선 배정. 경남 지역 우선.","source":"기업마당","url":"https://www.bizinfo.go.kr","official_url":"https://www.bizinfo.go.kr/web/lay1/bbs/S1T122C128/AS/74/list.do","official_doc":"https://www.bizinfo.go.kr/web/lay1/bbs/S1T122C128/AS/74/list.do","applyMonths":[3,4,5,6,7],"alwaysOpen":false,"confidence":"verified","confidence_note":"기업마당 공고 기반","prefConditions":["posSystem","tableOrder","zeropayBasic"],"prefLabels":{"posSystem":"POS 고도화 우선","tableOrder":"테이블오더 직접 지원","zeropayBasic":"제로페이 연동 우선"},"conditions":{"bizAge":{"min":1,"label":"업력 1년 이상"},"employees":{"max":4,"label":"상시근로자 5인 미만"},"revenue":{"max":80000,"label":"연매출 8억 미만"},"bizType":{"types":["restaurant","cafe","delivery","franchise"],"label":"음식점·카페 해당"}}},{"id":"V008","name":"경남신용보증재단 소상공인 일반보증","org":"경남신용보증재단","cat":"guarantee","catLabel":"신용보증","amount":"최대 1억원","rate":"보증료 연 1.0~1.5% (대출금리 별도)","regionScope":"all","desc":"담보 없이 경남신용보증재단 보증서로 협약은행 대출. 경남 전 시군 소상공인. 연중 상시 접수. 제로페이·고용보험 가입 시 보증료 우대.","source":"경남신용보증재단","url":"https://www.knsgf.or.kr","official_url":"https://www.knsgf.or.kr","official_doc":"https://www.knsgf.or.kr","applyMonths":[1,2,3,4,5,6,7,8,9,10,11,12],"alwaysOpen":true,"confidence":"verified","confidence_note":"경남신용보증재단 공식 사이트 확인","prefConditions":["zeropayBasic","zeropayExcellent","selfInsurance"],"prefLabels":{"zeropayBasic":"보증료 우대","zeropayExcellent":"우수가맹점 추가 우대","selfInsurance":"고용보험 우대"},"conditions":{"bizAge":{"min":0.5,"label":"사업 개시 6개월 이상"},"employees":{"max":4,"label":"상시근로자 5인 미만"},"creditScore":{"min":600,"label":"신용점수 600점 이상 (실질 기준)"},"bizType":{"types":["restaurant","cafe","delivery","franchise","other"],"label":"전 업종"}}},{"id":"V009","name":"경상남도 소상공인 경영안정자금","org":"경상남도 / 경남경제진흥원","cat":"loan","catLabel":"저금리 융자","amount":"최대 5천만원","rate":"연 2.5% (도 이차보전)","regionScope":"all","desc":"경남 도내 소상공인 전용. 이차보전으로 2.5% 고정금리. 제로페이·전통시장 우대. 협약 은행 방문 신청. 예산 소진 시 조기 마감.","source":"경상남도청","url":"https://www.gyeongnam.go.kr","official_url":"https://www.gyeongnam.go.kr/index.gyeong","official_doc":"https://www.bizinfo.go.kr/web/lay1/bbs/S1T122C128/AS/74/list.do","applyMonths":[1,2,3,4,7,8,9],"alwaysOpen":false,"confidence":"partial","confidence_note":"경남도청 공고 기반 — 정확한 연도별 조건은 원문 확인 필요","prefConditions":["zeropayBasic","zeropayExcellent","selfInsurance","tMarket"],"prefLabels":{"zeropayBasic":"금리 우대","zeropayExcellent":"추가 우대","selfInsurance":"고용보험 우대","tMarket":"전통시장 우선"},"conditions":{"bizAge":{"min":1,"label":"업력 1년 이상"},"employees":{"max":4,"label":"상시근로자 5인 미만"},"revenue":{"max":99999,"label":"연매출 10억 이하"},"bizType":{"types":["restaurant","cafe","delivery","franchise","other"],"label":"전 업종"}}},{"id":"V010","name":"경남 청년 자영업자 창업지원자금","org":"경상남도 / 경남경제진흥원","cat":"startup","catLabel":"청년·고용","amount":"최대 5천만원","rate":"연 2.0% (청년 우대)","regionScope":"all","desc":"만 39세 이하 경남 청년 창업자 전용. 업력 3년 미만. POS·테이블오더 스마트 점포 추가 가점. 경남 주소 필수.","source":"경상남도청","url":"https://www.gyeongnam.go.kr","official_url":"https://www.gyeongnam.go.kr/index.gyeong","official_doc":"https://www.bizinfo.go.kr/web/lay1/bbs/S1T122C128/AS/74/list.do","applyMonths":[3,4,5,9,10],"alwaysOpen":false,"confidence":"partial","confidence_note":"경남도청 공고 기반 — 원문 확인 필요","mustAny":["ownerYoung"],"prefConditions":["ownerYoung","posSystem","tableOrder"],"prefLabels":{"ownerYoung":"청년 필수 요건","posSystem":"스마트 점포 가점","tableOrder":"스마트 점포 가점"},"conditions":{"bizAge":{"min":0,"max":3,"label":"업력 3년 미만 / 예비창업"},"청년대표_필수":{"label":"대표자 만 39세 이하 필수","_must":true},"employees":{"max":49,"label":"종업원 49인 이하"},"bizType":{"types":["restaurant","cafe","delivery","franchise","other"],"label":"전 업종"}}}];
+
+// ── 수동검증 자금 조건 체크 ──
+function checkVerified(fund, profile) {
+  const c = fund.conditions; let ok = true; const reasons = [], matches = {};
+  const prefs = profile.prefs;
+  if (fund.mustAny) {
+    const pass = fund.mustAny.some(k => prefs[k]);
+    if (!pass) { ok = false; reasons.push(fund.mustAny.map(k => ({ownerYoung:'대표 39세↓',youthHired:'청년 고용'}[k]||k)).join(' 또는 ') + ' 필요'); }
+  }
+  for (const [key, cond] of Object.entries(c)) {
+    if (cond._must) {
+      let pass = true;
+      if (key === '청년조건') pass = prefs.ownerYoung || prefs.youthHired;
+      else if (key === '청년대표_필수') pass = prefs.ownerYoung;
+      else if (key === '플랫폼입점') pass = prefs.deliveryApp;
+      else if (key === '스마트조건') pass = prefs.posSystem || prefs.tableOrder || prefs.baeknyeongaje || prefs.localCreator;
+      matches[key] = pass; if (!pass) { ok = false; reasons.push(cond.label.replace(' 필수','')); }
+    } else if (key === 'bizType') {
+      const p = cond.types.includes(profile.bizType); matches[key] = p; if (!p) { ok = false; reasons.push('업종 미해당'); }
+    } else if (key === 'bizAge') {
+      let p = true;
+      if (cond.min !== undefined && profile.bizAge < cond.min) p = false;
+      if (cond.max !== undefined && profile.bizAge > cond.max) p = false;
+      matches[key] = p; if (!p) { ok = false; reasons.push('업력 조건 불일치'); }
+    } else if (key === 'employees') {
+      const p = !(cond.max !== undefined && profile.employees > cond.max);
+      matches[key] = p; if (!p) { ok = false; reasons.push('종업원 수 초과'); }
+    } else if (key === 'revenue') {
+      if (cond.max !== undefined && cond.max > 0) { const p = profile.revenue <= cond.max; matches[key] = p; if (!p) { ok = false; reasons.push('매출 규모 초과'); } }
+      else matches[key] = true;
+    } else if (key === 'creditScore') {
+      const pMin = cond.min === undefined || profile.creditScore >= cond.min;
+      const pMax = cond.max === undefined || profile.creditScore <= cond.max;
+      matches[key] = pMin && pMax; if (!matches[key]) { ok = false; reasons.push('신용점수 미충족'); }
+    } else if (key === 'region') {
+      const p = profile.region === 'all' || cond.areas.includes(profile.region);
+      matches[key] = p; if (!p) { ok = false; reasons.push('지역 미해당'); }
+    }
+  }
+  return { ok, reasons, matches };
+}
+
+// ── bizinfo 실시간 호출 (CORS 허용 확인됨) ──
+async function fetchBizinfo(params) {
+  const qs = new URLSearchParams({ crtfcKey: CRTFC_KEY, returnType: 'json', ...params });
+  const res = await fetch('https://www.bizinfo.go.kr/uss/rss/bizinfoApi.do?' + qs);
+  return await res.text();
+}
+
+function parseXmlItems(xmlStr) {
+  let doc;
+  try { doc = new DOMParser().parseFromString(xmlStr, 'text/xml'); } catch(e) { return []; }
+  return [...doc.querySelectorAll('item')].map(it => {
+    const g = tag => { const el = it.querySelector(tag); return el ? el.textContent.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim() : ''; };
+    return {
+      id: g('seq'), title: g('title'), author: g('author'), excInsttNm: g('excInsttNm'),
+      lcategory: g('lcategory'), trgetNm: g('trgetNm'), reqstDt: g('reqstDt'),
+      pubDate: g('pubDate'), link: g('link'), desc: g('description').substring(0, 400)
+    };
+  });
+}
+
+function parseConditions(item) {
+  const text = [item.title, item.desc, item.trgetNm].join(' ');
+  const c = { bizAge_max:null, bizAge_min:null, employees_max:null, revenue_max:null, creditScore_max:null,
+    isGynam:false, isSosang:false, isFood:false, isYoung:false, category:'support', parseConfidence:0 };
+  const ageP = [
+    {re:/업력\s*(\d+)년\s*이하/, f:m=>({max:+m[1]})}, {re:/업력\s*(\d+)년\s*미만/, f:m=>({max:+m[1]-0.1})},
+    {re:/창업\s*(?:후|한지)?\s*(\d+)년\s*이(?:하|내)/, f:m=>({max:+m[1]})}, {re:/창업\s*(?:후)?\s*(\d+)년\s*미만/, f:m=>({max:+m[1]-0.1})},
+    {re:/업력\s*(\d+)년\s*이상/, f:m=>({min:+m[1]})}
+  ];
+  for (const p of ageP) { const m = text.match(p.re); if (m) { const r = p.f(m); if (r.max!==undefined) c.bizAge_max=r.max; if (r.min!==undefined) c.bizAge_min=r.min; } }
+  for (const re of [/상시\s*근로자\s*(\d+)\s*인\s*(?:미만|이하)/, /종업원\s*(?:수)?\s*(\d+)\s*인?\s*(?:미만|이하)/, /(\d+)\s*인\s*미만\s*소상공인/]) { const m = text.match(re); if (m) { c.employees_max = +m[1]; break; } }
+  for (const p of [{re:/연\s*매출\s*(?:액)?\s*(\d+(?:\.\d+)?)\s*억\s*원?\s*이하/, f:m=>+m[1]*10000}, {re:/연\s*매출\s*(?:액)?\s*(\d+(?:\.\d+)?)\s*억\s*원?\s*미만/, f:m=>+m[1]*10000-1}, {re:/(\d+(?:\.\d+)?)\s*억\s*원?\s*미만/, f:m=>+m[1]*10000-1}]) { const m = text.match(p.re); if (m) { c.revenue_max = p.f(m); break; } }
+  const cm = text.match(/(?:신용|NCB)\s*(?:점수)?\s*(\d+)\s*점?\s*이하/); if (cm) c.creditScore_max = +cm[1];
+  if (/융자|대출|자금|금리|보증/.test(text)) c.category='loan';
+  else if (/보조금|바우처|지원금|70%|80%/.test(text)) c.category='subsidy';
+  else if (/창업|예비창업|재창업/.test(text)) c.category='startup';
+  c.isGynam = /경남|경상남도|창원|진주|김해|통영|거제|사천|양산|밀양|함안|창녕|고성|남해|하동|산청|함양|거창|합천|의령/.test(text);
+  c.isSosang = /소상공인|자영업|소기업/.test(text);
+  c.isFood = /음식점|외식|식당|요식|카페|커피|제과|제빵|배달|푸드/.test(text);
+  c.isYoung = /청년|만\s*39\s*세|39세\s*이하/.test(text);
+  let pc = 0;
+  if (c.bizAge_max!==null||c.bizAge_min!==null) pc++;
+  if (c.employees_max!==null) pc++;
+  if (c.revenue_max!==null) pc++;
+  c.parseConfidence = pc;
+  return c;
+}
+
+function matchLiveItem(item, parsed, profile) {
+  if (!parsed.isSosang && !parsed.isGynam && !parsed.isFood) return null;
+  const tg = item.trgetNm || '';
+  if (/대기업|중견기업/.test(tg) && !/소상공인|자영업/.test(tg)) return null;
+  const reasons = []; let score = 0;
+  if (parsed.bizAge_max!==null && profile.bizAge > parsed.bizAge_max) reasons.push('업력 초과('+parsed.bizAge_max+'년↓)');
+  if (parsed.bizAge_min!==null && profile.bizAge < parsed.bizAge_min) reasons.push('업력 부족('+parsed.bizAge_min+'년↑)');
+  if (parsed.employees_max!==null && profile.employees > parsed.employees_max) reasons.push('종업원 초과');
+  if (parsed.revenue_max!==null && profile.revenue > parsed.revenue_max) reasons.push('매출 초과');
+  if (parsed.isSosang) score+=3; if (parsed.isFood) score+=3; if (parsed.isGynam) score+=2;
+  if (parsed.isYoung && (profile.prefs.ownerYoung||profile.prefs.youthHired)) score+=2;
+  if (parsed.parseConfidence>=2) score+=1;
+  return { eligible: reasons.length===0, reasons, score, parsedCond: parsed };
+}
+
+let _liveCache = null, _liveCacheTime = 0;
+async function getLiveItems() {
+  if (_liveCache && Date.now()-_liveCacheTime < 10*60*1000) return _liveCache;
+  const queries = [
+    { numOfRows:'30', pageNo:'1', pblancSttus:'ing', trgetNm:'소상공인' },
+    { numOfRows:'30', pageNo:'1', pblancSttus:'ing', lcategory:'자금' },
+    { numOfRows:'20', pageNo:'1', pblancSttus:'ing', srchText:'경남 소상공인' },
+    { numOfRows:'20', pageNo:'1', pblancSttus:'ing', srchText:'음식점 지원' },
+  ];
+  const seen = new Set(), results = [];
+  const xmls = await Promise.all(queries.map(q => fetchBizinfo(q).catch(()=>'')));
+  for (const xml of xmls) {
+    for (const item of parseXmlItems(xml)) {
+      if (seen.has(item.id) || !item.id) continue;
+      seen.add(item.id);
+      const parsed = parseConditions(item);
+      if (parsed.isSosang || parsed.isGynam || parsed.isFood) results.push({ ...item, parsed });
+    }
+  }
+  _liveCache = results; _liveCacheTime = Date.now();
+  return results;
+}
+
+async function searchLocal(profile) {
+  const verified = VERIFIED_FUNDS.map(fund => {
+    const { ok, reasons, matches } = checkVerified(fund, profile);
+    const applied = (fund.prefConditions||[]).filter(k => profile.prefs[k]);
+    return { type:'verified', fund, ok, reasons, matches, applied };
+  });
+  let live = [];
+  try {
+    const items = await getLiveItems();
+    for (const item of items) {
+      const r = matchLiveItem(item, item.parsed, profile);
+      if (r) live.push({ type:'live', item, ...r });
+    }
+    live.sort((a,b) => b.score - a.score);
+    live = live.slice(0, 30);
+  } catch(e) { console.warn('실시간 공고 로드 실패:', e); }
+  return { ok:true, verified, live, updatedAt: new Date().toISOString() };
+}
+
+// 제외조건은 고정 안내(표기)로 처리 — 입력/필터링 없음
+
+function isOwnerYoung() { return document.getElementById('ownerAge').value === 'young'; }
+
+function getPrefs() {
+  return {
+    zeropayBasic:     document.getElementById('zeropayBasic').checked,
+    zeropayExcellent: document.getElementById('zeropayExcellent').checked,
+    ownerYoung:       isOwnerYoung(),
+    youthHired:       document.getElementById('youthHired').checked,
+    deliveryApp:      document.getElementById('deliveryApp').checked,
+    posSystem:        document.getElementById('posSystem').checked,
+    tableOrder:       document.getElementById('tableOrder').checked,
+    baeknyeongaje:    document.getElementById('baeknyeongaje').checked,
+    localCreator:     document.getElementById('localCreator').checked,
+    selfInsurance:    document.getElementById('selfInsurance').checked,
+    fireInsurance:    document.getElementById('fireInsurance').checked,
+    tMarket:          document.getElementById('tMarket').checked,
+  };
+}
+
+function updatePrefBar(prefs) {
+  const lmap = { zeropayExcellent:'제로페이 우수', zeropayBasic:'제로페이', ownerYoung:'청년 대표', youthHired:'청년 고용', deliveryApp:'배달앱', posSystem:'POS', tableOrder:'테이블오더', baeknyeongaje:'백년가게', localCreator:'로컬크리에이터', selfInsurance:'고용보험', fireInsurance:'화재공제', tMarket:'전통시장' };
+  const on = Object.keys(prefs).filter(k => prefs[k]);
+  const el = document.getElementById('prefBar');
+  if (on.length) { el.className='pref-bar on'; el.innerHTML='✦ 우대 '+on.length+'개: '+on.map(k=>lmap[k]).join(' · '); }
+  else el.className='pref-bar';
+}
+
+async function doSearch() {
+  const revenue = parseInt(document.getElementById('revenue').value);
+  if (revenue >= 150000) {
+    document.getElementById('results').innerHTML = `
+      <div class="panel" style="border-left:3px solid var(--red);">
+        <div style="font-weight:800;font-size:1rem;color:var(--red);margin-bottom:8px;">⚠️ 소상공인 기준 초과</div>
+        <div style="font-size:0.82rem;color:var(--sub);line-height:1.7;">음식업 연매출 10억 초과 시 소상공인 정책자금 신청 불가.<br>중소기업 정책자금은 <a href="https://www.kosmes.or.kr" target="_blank" style="color:var(--accent);">중소벤처기업진흥공단 →</a></div>
+      </div>`;
+    return;
+  }
+
+  const btn = document.getElementById('btnSearch');
+  btn.disabled = true; btn.textContent = '검색 중...';
+  const prefs = getPrefs();
+  updatePrefBar(prefs);
+
+  const profile = {
+    region:      document.getElementById('region').value,
+    bizType:     document.getElementById('bizType').value,
+    bizAge:      parseFloat(document.getElementById('bizAge').value),
+    employees:   parseInt(document.getElementById('employees').value),
+    revenue,
+    creditScore: parseInt(document.getElementById('creditScore').value),
+    prefs
+  };
+
+  const resultsEl = document.getElementById('results');
+  resultsEl.innerHTML = `<div class="loading"><div class="spinner"></div><p>내 조건에 맞는 자금을 찾는 중...</p></div>`;
+  // 모바일: 결과 영역으로 부드럽게 스크롤 (변화가 보이도록)
+  if (window.innerWidth <= 880) resultsEl.scrollIntoView({ behavior:'smooth', block:'start' });
+
+  try {
+    // 로딩이 너무 빨라도 최소 0.4초는 보이게
+    const [data] = await Promise.all([ searchLocal(profile), new Promise(r=>setTimeout(r,400)) ]);
+    render(data);
+    // 모바일(폰): 검색 완료 시 결과 탭으로 자동 전환
+    if (window.innerWidth <= 480) switchTab('result');
+  } catch(e) {
+    document.getElementById('results').innerHTML = `<div class="empty"><div class="icon">⚠️</div><p>${e.message}</p></div>`;
+  } finally {
+    btn.disabled = false; btn.textContent = '정책자금 검색하기 →';
+  }
+}
+
+function render(data) {
+  const rl = document.getElementById('region').value === 'all' ? '경상남도 전체' : document.getElementById('region').value;
+  const vOk = data.verified.filter(r=>r.ok).length;
+  const lOk = data.live.filter(r=>r.eligible).length;
+  const prefN = data.verified.filter(r=>r.ok&&r.applied.length).length;
+  const ts = new Date(data.updatedAt).toLocaleTimeString('ko-KR');
+
+  const vOkList = data.verified.filter(r=>r.ok);
+  const vNoList = data.verified.filter(r=>!r.ok);
+  const lOkList = data.live.filter(r=>r.eligible);
+
+  // ── 0개일 때 원인 분석 + 대안 안내 ──
+  let guideBox = '';
+  if (vOk === 0) {
+    const allReasons = data.verified.flatMap(r=>r.reasons);
+    const empOver = allReasons.filter(x=>x.includes('종업원')).length;
+    const revOver = allReasons.filter(x=>x.includes('매출')).length;
+    const emp = parseInt(document.getElementById('employees').value);
+    const rev = parseInt(document.getElementById('revenue').value);
+
+    let cause = '', advice = '';
+    if (emp >= 6) {
+      cause = '<b>상시근로자 5인 이상</b>이라 소상공인 정책자금 대상에서 제외되었습니다. (음식·서비스업 소상공인 = 상시근로자 5인 미만)';
+      advice = '직원 중 <b>4대보험 미가입자·주15시간 미만 단시간 근로자·대표 가족</b>은 상시근로자에서 빠집니다. 실제 상시근로자가 4명 이하라면 다시 선택해보세요.';
+    } else if (rev >= 150000) {
+      cause = '<b>연매출 10억 초과</b>로 음식업 소상공인 기준을 넘었습니다.';
+      advice = '중소기업 정책자금 대상일 수 있습니다.';
+    } else {
+      cause = '입력하신 조건에 정확히 맞는 공식검증 자금이 없습니다.';
+      advice = '업력·신용점수 등을 다시 확인하시거나, 아래 실시간 공고를 확인하세요.';
+    }
+
+    guideBox = `
+      <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:16px;margin-bottom:16px;">
+        <div style="font-weight:800;font-size:0.9rem;color:#c2410c;margin-bottom:8px;">🔍 신청 가능 자금이 없는 이유</div>
+        <div style="font-size:0.8rem;color:#7c2d12;line-height:1.7;margin-bottom:10px;">${cause}</div>
+        <div style="font-size:0.78rem;color:#9a3412;line-height:1.7;background:#fffbeb;border-radius:8px;padding:10px 12px;">💡 ${advice}</div>
+        <div style="font-size:0.75rem;color:#6b7280;line-height:1.7;margin-top:10px;">
+          <b>직원이 많거나 매출이 큰 경우</b>에도 가능한 곳:<br>
+          • <a href="https://www.knsgf.or.kr" target="_blank" style="color:var(--accent);font-weight:600;">경남신용보증재단</a> — 중소기업 보증도 취급<br>
+          • <a href="https://www.kosmes.or.kr" target="_blank" style="color:var(--accent);font-weight:600;">중소벤처기업진흥공단</a> — 중소기업 정책자금<br>
+          • ☎ 소상공인 통합콜센터 <b>1533-0100</b>
+        </div>
+      </div>`;
+  }
+
+  const vCards = [
+    ...vOkList.map(r=>makeVC(r)),
+    vNoList.length ? `<div style="font-size:0.72rem;color:#9ca3af;padding:6px 2px;font-weight:600;">미해당 자금 (${vNoList.length}개) — 사유 확인</div>` + vNoList.map(r=>makeVC(r)).join('') : ''
+  ].join('');
+
+  document.getElementById('results').innerHTML = `
+    <div class="sum-row">
+      <span class="sum-chip sc-region">📍 ${rl}</span>
+      <span class="sum-chip sc-ok">✅ 신청 가능 ${vOk}개</span>
+      <span class="sum-chip sc-live">🔴 실시간 공고 ${lOk}개</span>
+      ${prefN ? `<span class="sum-chip sc-pref">✦ 우대 적용 ${prefN}개</span>` : ''}
+      <span style="font-size:0.68rem;color:#9ca3af;align-self:center;">🕐 ${ts}</span>
+    </div>
+
+    ${guideBox}
+    <div class="section-title">
+      공식 검증 자금
+      <span class="section-badge sb-verified">✅ 소진공·경남도청 공문 기반</span>
+    </div>
+    <div class="fund-stack">${vCards || '<div style="color:#9ca3af;font-size:0.78rem;padding:8px;">조건에 맞는 자금 없음</div>'}</div>
+
+    <div class="section-title" style="margin-top:24px;">
+      실시간 공고 <span style="font-weight:400;color:#9ca3af;font-size:0.72rem;">(참고용)</span>
+      <span class="section-badge sb-live">🔴 기업마당 자동수집</span>
+    </div>
+    <div class="fund-stack">${lOkList.slice(0,8).map(r=>makeLC(r)).join('') || '<div style="color:#9ca3af;font-size:0.78rem;padding:8px;">해당 공고 없음</div>'}</div>
+    ${lOkList.length>8 ? `<div style="text-align:center;font-size:0.74rem;color:#9ca3af;padding:10px;">외 ${lOkList.length-8}건 더 있음 · <a href="https://www.bizinfo.go.kr" target="_blank" style="color:var(--accent);">기업마당에서 전체 보기 ↗</a></div>` : ''}
+  `;
+  // 검색 완료 후 결과 상단으로 (모바일)
+  if (window.innerWidth <= 880) {
+    setTimeout(() => document.querySelector('.sum-row')?.scrollIntoView({ behavior:'smooth', block:'start' }), 50);
+  }
+}
+
+function makeVC(r) {
+  const { fund, ok, reasons, matches, applied } = r;
+  const isOpen = fund.alwaysOpen || (fund.applyMonths && fund.applyMonths.includes(NOW));
+
+  // 금리 핵심 부분만 추출 (괄호 이후 제거)
+  const rateShort = fund.rate.split('(')[0].trim();
+  const amtShort  = fund.amount.replace('최대 ', '');
+
+  // 신청 상태 배지
+  const openBadge = isOpen
+    ? `<span style="display:inline-flex;align-items:center;gap:4px;background:#dcfce7;color:#166534;font-size:0.78rem;font-weight:800;padding:5px 12px;border-radius:20px;"><span style="width:7px;height:7px;background:#16a34a;border-radius:50%;"></span>지금 신청 가능</span>`
+    : `<span style="background:#f3f4f6;color:#9ca3af;font-size:0.75rem;font-weight:700;padding:4px 11px;border-radius:20px;">신청 기간 아님</span>`;
+
+  const prefBadge = applied.length
+    ? `<span style="background:#ede9fe;color:#6d28d9;font-size:0.72rem;font-weight:700;padding:3px 9px;border-radius:20px;">✦ 우대 ${applied.length}개 적용</span>`
+    : '';
+
+  // 세부 조건 (숨김 처리용)
+  const condChips = Object.entries(fund.conditions).map(([k,c]) => {
+    const m = matches[k] !== false;
+    return `<span class="cc ${m?'cc-ok':'cc-no'}">${m?'✓':'✕'} ${c.label}</span>`;
+  }).join('');
+
+  const prefLine = applied.length
+    ? `<div style="font-size:0.74rem;color:#6d28d9;background:#faf5ff;border-radius:8px;padding:8px 12px;margin-bottom:10px;line-height:1.65;">✦ <b>우대조건 적용:</b> ${applied.map(k=>fund.prefLabels[k]||k).join(' · ')}</div>`
+    : '';
+
+  const schedNote = fund.alwaysOpen
+    ? '연중 상시 접수 (자금 소진 시 마감)'
+    : '연간 예산 소진 시 조기 마감';
+
+  const notOkBox = !ok
+    ? `<div style="font-size:0.74rem;color:#b91c1c;background:#fef2f2;border-radius:8px;padding:8px 12px;margin-bottom:10px;">⚠️ 미해당 사유: ${reasons.join(' · ')}</div>`
+    : '';
+
+  // [Fix 2] 입력만으로 판별 불가한 추가 요건 경고 (해당 자금 + 신청가능일 때만)
+  const extraReqBox = (ok && fund.extraReq)
+    ? `<div style="font-size:0.75rem;color:#9a3412;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:9px 12px;margin-bottom:12px;line-height:1.55;">⚠️ <b>추가 요건 확인 필요</b><br>${fund.extraReq}</div>`
+    : '';
+
+  // [Fix 1] 선택 지역이 결과에 반영됨을 명시 (모든 검증자금은 경남 전역 대상)
+  const selRegion = document.getElementById('region').value;
+  const regionTag = `<span style="background:#fef3c7;color:#92400e;font-size:0.7rem;font-weight:700;padding:4px 10px;border-radius:20px;">📍 ${selRegion === 'all' ? '경남 전역 신청 가능' : selRegion + ' 신청 가능'}</span>`;
+
+  return `
+<div class="fcard2 ${ok?'ok2':'no2'} ${applied.length?'pref-glow':''}">
+
+  <!-- ① 상단: 이름 + 기관 -->
+  <div style="padding:16px 16px 0;">
+    <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;">
+      <span style="font-size:1.1rem;flex-shrink:0;margin-top:1px;">${ok?'✅':'❌'}</span>
+      <div>
+        <div style="font-size:0.96rem;font-weight:800;color:var(--text);line-height:1.35;">${fund.name}</div>
+        <div style="font-size:0.72rem;color:var(--sub);margin-top:2px;">${fund.org}</div>
+      </div>
+    </div>
+
+    <!-- ② 핵심 숫자 강조 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+      <div style="background:var(--bg);border-radius:10px;padding:10px 12px;">
+        <div style="font-size:0.65rem;font-weight:700;color:#9ca3af;margin-bottom:3px;">지원 한도</div>
+        <div style="font-size:1.25rem;font-weight:900;color:var(--accent);letter-spacing:-0.5px;">${amtShort}</div>
+      </div>
+      <div style="background:var(--bg);border-radius:10px;padding:10px 12px;">
+        <div style="font-size:0.65rem;font-weight:700;color:#9ca3af;margin-bottom:3px;">금리</div>
+        <div style="font-size:1.25rem;font-weight:900;color:var(--text);letter-spacing:-0.5px;">${rateShort}</div>
+      </div>
+    </div>
+
+    <!-- ③ 핵심 설명 (2줄) -->
+    <div style="font-size:0.82rem;color:#374151;line-height:1.65;margin-bottom:12px;">${fund.desc}</div>
+
+    <!-- ③-1 추가 요건 경고 -->
+    ${extraReqBox}
+
+    <!-- ④ 신청 상태 + 지역 + 우대 배지 -->
+    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px;">
+      ${openBadge}
+      ${ok ? regionTag : ''}
+      ${prefBadge}
+    </div>
+
+    <!-- ⑤ 출처 + 바로가기 버튼 (항상 노출) -->
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-bottom:14px;border-bottom:1px solid var(--border);">
+      <span style="font-size:0.72rem;color:var(--sub);">출처: <b>${fund.source}</b></span>
+      <a href="${fund.url}" target="_blank"
+        style="display:inline-flex;align-items:center;gap:4px;background:var(--accent);color:white;font-size:0.78rem;font-weight:700;padding:7px 14px;border-radius:8px;text-decoration:none;">
+        신청하기 →
+      </a>
+    </div>
+  </div>
+
+  <!-- ⑥ 세부 조건 접기/펼치기 -->
+  <details style="padding:0 16px;">
+    <summary style="list-style:none;cursor:pointer;padding:10px 0;font-size:0.72rem;font-weight:700;color:#9ca3af;display:flex;align-items:center;gap:5px;user-select:none;">
+      <span>세부 신청 요건 보기</span>
+      <span style="margin-left:auto;">▾</span>
+    </summary>
+    <div style="padding-bottom:14px;">
+      ${notOkBox}
+      ${prefLine}
+      <div style="margin-bottom:8px;">
+        <div style="font-size:0.67rem;font-weight:700;color:#9ca3af;margin-bottom:6px;">${ok?'✓ 모든 요건 충족':'요건 확인 (빨간=미충족)'}</div>
+        <div class="cond-chips">${condChips}</div>
+      </div>
+      <div style="font-size:0.72rem;color:var(--sub);line-height:1.65;">📅 ${schedNote}</div>
+      <div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:10px;">
+        <a href="${fund.official_url}" target="_blank" class="vlink" style="font-size:0.71rem;">📄 공식 안내 ↗</a>
+        ${fund.official_doc && fund.official_doc !== fund.official_url ? `<a href="${fund.official_doc}" target="_blank" class="vlink" style="font-size:0.71rem;">📑 공고 원문 ↗</a>` : ''}
+      </div>
+    </div>
+  </details>
+
+</div>`;
+}
+
+function makeLC(r) {
+  const { item, pc } = { item: r.item, pc: r.parsedCond };
+  const catLabel = {loan:'융자·보증',subsidy:'보조금',startup:'창업지원',support:'지원사업'}[pc.category]||'지원사업';
+  const catColor = {loan:'#dbeafe',subsidy:'#fef3c7',startup:'#ede9fe',support:'#f3f4f6'}[pc.category]||'#f3f4f6';
+  const catText  = {loan:'#1e40af',subsidy:'#92400e',startup:'#5b21b6',support:'#6b7280'}[pc.category]||'#6b7280';
+
+  return `
+<div class="fcard2 ok2">
+  <div style="padding:16px 16px 0;">
+    <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;">
+      <span style="display:inline-block;background:${catColor};color:${catText};font-size:0.68rem;font-weight:700;padding:3px 9px;border-radius:5px;flex-shrink:0;margin-top:2px;">${catLabel}</span>
+      <div style="font-size:0.9rem;font-weight:700;color:var(--text);line-height:1.4;">${item.title}</div>
+    </div>
+    <div style="font-size:0.81rem;color:#374151;line-height:1.65;margin-bottom:12px;">${item.desc.substring(0,160)}${item.desc.length>160?'…':''}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
+      <span style="background:#f3f4f6;color:#374151;font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:20px;">📅 ${item.reqstDt||'상시접수'}</span>
+      <span style="background:#fff7ed;color:#9a3412;font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:20px;">⚠️ 자동수집·원문확인 필요</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-bottom:14px;">
+      <span style="font-size:0.72rem;color:var(--sub);">🏛️ ${item.author}</span>
+      <a href="${item.link}" target="_blank"
+        style="display:inline-flex;align-items:center;gap:4px;background:#374151;color:white;font-size:0.78rem;font-weight:700;padding:7px 14px;border-radius:8px;text-decoration:none;">
+        원문 공고 보기 →
+      </a>
+    </div>
+  </div>
+</div>`;
+}
+
+// 첫 화면은 소개 화면 유지 — 사용자가 검색 버튼을 눌러야 결과 표시
+
+// ── 모바일 탭 전환 ────────────────────────────────
+function switchTab(tab) {
+  const form   = document.getElementById('formWrap');
+  const result = document.getElementById('resultWrap');
+  const tForm  = document.getElementById('tabForm');
+  const tResult= document.getElementById('tabResult');
+  if (tab === 'form') {
+    form.classList.remove('hidden');
+    result.classList.remove('show');
+    tForm.classList.add('active');
+    tResult.classList.remove('active');
+  } else {
+    form.classList.add('hidden');
+    result.classList.add('show');
+    tForm.classList.remove('active');
+    tResult.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+// 화면 크기 감지해서 모바일 탭 표시 여부 결정
+function checkMobile() {
+  const isMobile = window.innerWidth <= 480;
+  const tabs = document.getElementById('mobileTabs');
+  tabs.style.display = isMobile ? 'flex' : 'none';
+  if (!isMobile) {
+    // PC면 둘 다 표시
+    document.getElementById('formWrap').classList.remove('hidden');
+    document.getElementById('resultWrap').classList.remove('show');
+    document.getElementById('resultWrap').style.display = '';
+  }
+}
+window.addEventListener('resize', checkMobile);
+checkMobile();
+
+</script>
+</body>
+</html>

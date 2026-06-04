@@ -1,0 +1,9 @@
+# Claude Code 내부 설정 (배포 불필요)
+.claude/
+
+# 로컬 실행/시스템 파일
+*.log
+허용권한_로그.txt
+node_modules/
+.DS_Store
+Thumbs.db
