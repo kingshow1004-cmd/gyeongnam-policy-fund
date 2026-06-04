@@ -9,7 +9,7 @@
 <!-- 카톡·SNS 공유 미리보기 (OG 태그) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://amazing-brioche-058e7c.netlify.app">
-<meta property="og:title" content="💰 경남 정책자금 안내 — 내 조건에 맞는 자금 찾기">
+<meta property="og:title" content="💰 경상남도 정책자금 안내 — 경남창원 청씨오모임 카카오 오픈채팅방">
 <meta property="og:description" content="경남창원 청씨오모임 🍽️ | 지역·업력·매출만 입력하면 신청 가능한 저금리 융자·보조금을 자동으로 찾아드립니다. 소진공 공문 기반 + 실시간 공고 연동. 무료 · 개인정보 미수집.">
 <meta property="og:image" content="https://amazing-brioche-058e7c.netlify.app/og-image.svg">
 <meta property="og:image:width" content="1200">
@@ -72,11 +72,27 @@ body {
   display: inline-flex; align-items: center; gap: 5px;
   background: rgba(99,102,241,0.2); color: #a5b4fc;
   font-size: 0.72rem; font-weight: 600; padding: 3px 10px;
-  border-radius: 20px; margin-bottom: 10px;
+  border-radius: 20px; margin-bottom: 8px;
   border: 1px solid rgba(99,102,241,0.3);
 }
 .hbadge::before { content: '●'; font-size: 0.55rem; color: #6366f1; }
-.header h1 { font-size: 1.5rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; line-height: 1.3; }
+/* 그룹명 + 오픈채팅 표시 줄 */
+.hgroup {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 12px;
+}
+.hgroup-name {
+  font-size: 1.05rem; font-weight: 900; color: #fff; letter-spacing: -0.3px;
+}
+.hgroup-chat {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: #FEE500; color: #3A1D1D;
+  font-size: 0.78rem; font-weight: 800;
+  padding: 4px 12px; border-radius: 20px;
+  letter-spacing: -0.2px; flex-shrink: 0;
+}
+.hgroup-chat::before { content: '💬'; font-size: 0.8rem; }
+.header h1 { font-size: 1.7rem; font-weight: 900; color: #fff; letter-spacing: -0.8px; line-height: 1.2; margin-bottom: 2px; }
 .header p  { font-size: 0.8rem; color: #6b7280; margin-top: 6px; }
 
 /* ── 레이아웃 ── */
@@ -507,9 +523,11 @@ details.acc[open] .acc-chevron { transform: rotate(180deg); }
 
   /* 헤더: 컴팩트하게 */
   .header { padding: 18px 16px 14px; }
-  .header h1 { font-size: 1.15rem; }
+  .header h1 { font-size: 1.25rem; }
   .header p  { font-size: 0.74rem; }
   .hbadge    { font-size: 0.64rem; }
+  .hgroup-name { font-size: 0.9rem; }
+  .hgroup-chat { font-size: 0.72rem; padding: 3px 10px; }
 
   /* 폼 패널: 전체 너비 */
   .panel { border-radius: 0; border-left: none; border-right: none; border-top: none; padding: 16px; }
@@ -569,8 +587,10 @@ details.acc[open] .acc-chevron { transform: rotate(180deg); }
 
   /* 폰 헤더 더 컴팩트 */
   .header { padding: 14px 14px 12px; }
-  .header h1 { font-size: 1rem; }
+  .header h1 { font-size: 1.1rem; }
   .hbadge { display: none; }
+  .hgroup-name { font-size: 0.82rem; }
+  .hgroup-chat { font-size: 0.68rem; padding: 3px 9px; }
 
   /* 검색 버튼 더 크게 (손가락 터치 편하게) */
   .btn-search { padding: 14px; font-size: 1rem; border-radius: 14px; }
@@ -593,8 +613,13 @@ details.acc[open] .acc-chevron { transform: rotate(180deg); }
 <body>
 
 <div class="header">
-  <div class="hbadge">경남창원 청씨오모임 · 경상남도 자영업자 지원 · 기업마당 API 연동</div>
-  <h1>경남 정책자금 안내</h1>
+  <div class="hbadge">경상남도 자영업자 지원 · 기업마당 API 연동</div>
+  <!-- 그룹명 + 카카오 오픈채팅 표시 -->
+  <div class="hgroup">
+    <span class="hgroup-name">경남창원 청씨오모임</span>
+    <span class="hgroup-chat">카카오 오픈채팅방</span>
+  </div>
+  <h1>경상남도 정책자금 안내</h1>
   <p>업체 정보 입력 → 신청 가능 자금 자동 판별 · 공문 원문 링크 직접 제공</p>
 </div>
 
