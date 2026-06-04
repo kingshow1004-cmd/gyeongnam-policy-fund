@@ -3,14 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>경남 자영업자 정책자금 안내 | 내 조건에 맞는 자금 찾기</title>
-<meta name="description" content="경상남도 음식점·자영업자를 위한 정책자금 안내. 업체 정보만 입력하면 신청 가능한 저금리 융자·보증·보조금을 자동으로 찾아드립니다.">
+<title>경남 정책자금 안내 | 경남창원 청씨오모임</title>
+<meta name="description" content="경남창원 청씨오모임이 정리한 경상남도 자영업자 정책자금 안내. 업체 정보만 입력하면 신청 가능한 저금리 융자·보증·보조금을 자동으로 찾아드립니다.">
 <meta name="theme-color" content="#0f0e17">
-<!-- 카톡·SNS 공유 미리보기 -->
+<!-- 카톡·SNS 공유 미리보기 (OG 태그) -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="경남 자영업자 정책자금 안내">
-<meta property="og:description" content="업체 정보만 입력하면 신청 가능한 정책자금을 자동으로 찾아드립니다. 소진공 공문 기반 + 기업마당 실시간 연동.">
+<meta property="og:url" content="https://amazing-brioche-058e7c.netlify.app">
+<meta property="og:title" content="💰 경남 정책자금 안내 — 내 조건에 맞는 자금 찾기">
+<meta property="og:description" content="경남창원 청씨오모임 🍽️ | 지역·업력·매출만 입력하면 신청 가능한 저금리 융자·보조금을 자동으로 찾아드립니다. 소진공 공문 기반 + 실시간 공고 연동. 무료 · 개인정보 미수집.">
+<meta property="og:image" content="https://amazing-brioche-058e7c.netlify.app/og-image.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="ko_KR">
+<!-- 카카오톡 전용 -->
+<meta property="og:image:alt" content="경남 정책자금 안내 — 경남창원 청씨오모임">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="💰 경남 정책자금 안내">
+<meta name="twitter:description" content="경남창원 청씨오모임 | 내 조건에 맞는 정책자금 자동 판별">
+<meta name="twitter:image" content="https://amazing-brioche-058e7c.netlify.app/og-image.svg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍽️%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
@@ -583,7 +593,7 @@ details.acc[open] .acc-chevron { transform: rotate(180deg); }
 <body>
 
 <div class="header">
-  <div class="hbadge">경상남도 자영업자 지원 · 기업마당 API 연동</div>
+  <div class="hbadge">경남창원 청씨오모임 · 경상남도 자영업자 지원 · 기업마당 API 연동</div>
   <h1>경남 정책자금 안내</h1>
   <p>업체 정보 입력 → 신청 가능 자금 자동 판별 · 공문 원문 링크 직접 제공</p>
 </div>
@@ -1179,6 +1189,36 @@ function makeVC(r) {
     ? '연중 상시 접수 (자금 소진 시 마감)'
     : '연간 예산 소진 시 조기 마감';
 
+  // 신청 월 타임라인 생성
+  const MN = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+  let monthTimeline = '';
+  if (fund.alwaysOpen) {
+    monthTimeline = `<div style="font-size:0.72rem;color:#065f46;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:8px 12px;margin-bottom:10px;">
+      🟢 <b>연중 상시 접수</b> — 언제든 신청 가능 (예산 소진 시까지)
+    </div>`;
+  } else if (fund.applyMonths && fund.applyMonths.length) {
+    const nextMonths = fund.applyMonths.filter(m => m >= NOW);
+    const pastMonths = fund.applyMonths.filter(m => m < NOW);
+    const isNowOpen = fund.applyMonths.includes(NOW);
+    const chips = MN.map((label, i) => {
+      const m = i + 1;
+      const isApply = fund.applyMonths.includes(m);
+      if (!isApply) return `<span style="font-size:0.68rem;padding:3px 7px;border-radius:5px;background:#f3f4f6;color:#d1d5db;font-weight:600;">${label}</span>`;
+      if (m < NOW) return `<span style="font-size:0.68rem;padding:3px 7px;border-radius:5px;background:#fee2e2;color:#fca5a5;font-weight:600;text-decoration:line-through;">${label}</span>`;
+      if (m === NOW) return `<span style="font-size:0.68rem;padding:3px 8px;border-radius:5px;background:#dcfce7;color:#166534;font-weight:800;border:1.5px solid #16a34a;">${label} ◀지금</span>`;
+      return `<span style="font-size:0.68rem;padding:3px 7px;border-radius:5px;background:#dbeafe;color:#1d4ed8;font-weight:700;">${label}</span>`;
+    }).join('');
+    const nextLabel = nextMonths.length
+      ? (isNowOpen ? `<b>이번달(${NOW}월) 신청 가능!</b> 다음 접수: ${nextMonths.filter(m=>m>NOW).map(m=>MN[m-1]).join(', ')||'없음'}`
+                  : `다음 신청 가능: <b>${MN[nextMonths[0]-1]}</b>`)
+      : `<span style="color:#ef4444;">올해 신청 기간 종료</span> (내년 1월 재확인)`;
+    monthTimeline = `<div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:10px 12px;margin-bottom:10px;">
+      <div style="font-size:0.67rem;font-weight:700;color:#9ca3af;margin-bottom:7px;letter-spacing:0.3px;">📅 신청 가능 월</div>
+      <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:7px;">${chips}</div>
+      <div style="font-size:0.72rem;color:#374151;">${nextLabel}</div>
+    </div>`;
+  }
+
   const notOkBox = !ok
     ? `<div style="font-size:0.74rem;color:#b91c1c;background:#fef2f2;border-radius:8px;padding:8px 12px;margin-bottom:10px;">⚠️ 미해당 사유: ${reasons.join(' · ')}</div>`
     : '';
@@ -1249,6 +1289,7 @@ function makeVC(r) {
     <div style="padding-bottom:14px;">
       ${notOkBox}
       ${prefLine}
+      ${monthTimeline}
       <div style="margin-bottom:8px;">
         <div style="font-size:0.67rem;font-weight:700;color:#9ca3af;margin-bottom:6px;">${ok?'✓ 모든 요건 충족':'요건 확인 (빨간=미충족)'}</div>
         <div class="cond-chips">${condChips}</div>
